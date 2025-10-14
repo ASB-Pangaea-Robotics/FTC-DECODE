@@ -40,7 +40,7 @@ public class Hardware {
 
     public DcMotor example;
 
-    /**
+        /**
      * Initializes all variables. Hence, all initializations must be done <b>here</b>.
      * @param map The <b>HardwareMap</b> is required to be passed in here, and basically is what lets us use the various pieces of hardware.
      */

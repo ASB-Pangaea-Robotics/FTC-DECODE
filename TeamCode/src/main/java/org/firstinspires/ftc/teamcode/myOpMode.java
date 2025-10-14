@@ -11,7 +11,6 @@ import org.firstinspires.ftc.teamcode.common.Hardware;
 
 @TeleOp(name="myOpMode", group="TestOps")
 // Leave until needed
-@Disabled
 public class myOpMode extends LinearOpMode {
     // Makes and initializes the 'robot' object, which is just a Hardware object. This will let us access and use our devices.
     Hardware robot = Hardware.hardware_instance();
@@ -38,7 +37,6 @@ public class myOpMode extends LinearOpMode {
 
         // Waits for START on the Driver Station
         waitForStart();
-
         time.reset();
 
         while(opModeIsActive()){
