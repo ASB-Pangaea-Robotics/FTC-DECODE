@@ -2,3 +2,13 @@
 
 ## Coding Team
 
+### Lead
+Aryaman Maheshwari
+
+### Senior Programmers
+Nawon Kim
+
+### Junior Programmers
+Rohin Kuruvilla
+Adrian Boedlander
+Juan Maestre
