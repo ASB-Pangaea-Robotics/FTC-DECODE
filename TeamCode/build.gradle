@@ -21,10 +21,16 @@ android {
     packagingOptions {
         jniLibs.useLegacyPackaging true
     }
+    compileSdk 36
+    defaultConfig {
+        minSdk 24
+    }
 }
 
 dependencies {
     implementation project(':FtcRobotController')
+    implementation 'com.bylazar:fullpanels:1.0.6'
+    implementation 'org.ftclib.ftclib:core:2.1.1'
 }
 java {
     toolchain {
