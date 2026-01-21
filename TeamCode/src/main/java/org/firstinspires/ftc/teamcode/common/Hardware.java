@@ -34,7 +34,7 @@ public class Hardware {
 
     // Intake
     public DcMotor in;
-    public DigitalChannel inBreak;
+    public DcMotor transfer;
 
     // Examples
 
@@ -48,10 +48,10 @@ public class Hardware {
         //TODO: Check what directions are needed and what directions need to be set.
 
         // Drivetrain
-        LF = map.get(DcMotor.class, "left-front");
-        RF = map.get(DcMotor.class, "right-front");
-        LB = map.get(DcMotor.class, "left-back");
-        RB = map.get(DcMotor.class, "right-back");
+        LF = map.get(DcMotor.class, "lf");
+        RF = map.get(DcMotor.class, "rf");
+        LB = map.get(DcMotor.class, "lb");
+        RB = map.get(DcMotor.class, "rb");
 
         // Outake
         aim = map.get(Servo.class, "aim");
@@ -59,14 +59,8 @@ public class Hardware {
 
         // Intake
         in = map.get(DcMotor.class, "intake");
-        inBreak = map.get(DigitalChannel.class, "intake-break");
-
-        // Examples
-        example = map.get(DcMotor.class, "example");
-        //      Sets the Zero Power Behaviour (what to do when power=0) as BRAKE
-        example.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //      Reverses the direction
-        example.setDirection(DcMotorSimple.Direction.REVERSE);
+        in.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        transfer = map.get(DcMotor.class, "transfer");
 
 
     }

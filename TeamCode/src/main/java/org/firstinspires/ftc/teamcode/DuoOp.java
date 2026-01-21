@@ -12,16 +12,21 @@ import org.firstinspires.ftc.teamcode.common.Hardware;
 
 @TeleOp(name="TeleOp")
 public class DuoOp extends CommandOpMode {
+
+    // hardware
     Hardware robot = new Hardware();
+
+    // movement
     DcMotor LF = robot.LF;
     DcMotor RF = robot.RF;
     DcMotor RB = robot.RB;
     DcMotor LB = robot.LB;
 
+    // intake
     DcMotor intake = robot.in;
     double intake_power = 1.0;
 
-    // Rising edge detection system
+    // gamepad
     GamepadEx driver, operator;
 
 
@@ -34,12 +39,16 @@ public class DuoOp extends CommandOpMode {
 
             driver.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(intake_power))));
 
+            // TODO
+            // Configure the transfer system in such a way that the trigger pads' analogue values
+            // can be read to change power to the motor.
+            // reason is because the transfer is a bit odd currently, and this is a temp solution.
 
 
     }
     @Override
     public void run(){
-        // Movement
+        // full Mecanum drive system
         double y = -driver.getLeftY();
         double x = driver.getLeftX();
         double rx = driver.getRightX();
