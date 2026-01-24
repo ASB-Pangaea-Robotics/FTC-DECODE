@@ -23,10 +23,8 @@ public class Hardware {
         return instance;
     }
 
-    //TODO: See if these need to be renamed for clarity or if the team gets it.
 
     // Drivetrain
-    // TODO: Double check with build team about what type of motors we have, and also what type of variable this needs to be.
     public DcMotor LF, RF, LB, RB;
 
     // Outake

@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.common.Hardware;
 
-@TeleOp(name="TeleOpFinal", group="Final")
+@TeleOp(name="DuoOp", group="Final")
 public class DuoOp extends CommandOpMode {
 
     // hardware
@@ -57,6 +57,7 @@ public class DuoOp extends CommandOpMode {
             // Configure the transfer system in such a way that the trigger pads' analogue values
             // can be read to change power to the motor.
             // reason is because the transfer is a bit odd currently, and this is a temp solution.
+            telemetry.setMsTransmissionInterval(1000);
 
 
     }
@@ -85,6 +86,8 @@ public class DuoOp extends CommandOpMode {
         telemetry.addData("Right Back Model", rb_power);
 
         telemetry.update();
+
+
 
 
     }
