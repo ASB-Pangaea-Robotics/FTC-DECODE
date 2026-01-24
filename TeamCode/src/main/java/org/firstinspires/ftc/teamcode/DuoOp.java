@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.common.Hardware;
 
-@TeleOp(name="TeleOp")
+@TeleOp(name="TeleOpFinal", group="Final")
 public class DuoOp extends CommandOpMode {
 
     // hardware
@@ -26,6 +26,11 @@ public class DuoOp extends CommandOpMode {
     DcMotor intake = robot.in;
     double intake_power = 1.0;
 
+    // transfer
+
+    DcMotor transfer = robot.transfer;
+    double transfer_power = 1.0;
+
     // gamepad
     GamepadEx driver, operator;
 
@@ -37,8 +42,16 @@ public class DuoOp extends CommandOpMode {
 
             // Intake
 
-            operator.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(intake_power))));
-            operator.getGamepadButton(GamepadKeys.Button.B).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(-intake_power))));
+//            operator.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(intake_power))));
+//            operator.getGamepadButton(GamepadKeys.Button.B).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(-intake_power))));
+
+            operator.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> telemetry.addData("Key","A"))));
+            operator.getGamepadButton(GamepadKeys.Button.B).whenPressed(() -> schedule(new InstantCommand(() -> telemetry.addData("Key", "B"))));
+
+            // Transfer
+
+            operator.getGamepadButton(GamepadKeys.Button.X).whenPressed(()-> schedule(new InstantCommand(() -> telemetry.addData("Key","X" ))));
+            operator.getGamepadButton(GamepadKeys.Button.Y).whenPressed(()-> schedule(new InstantCommand(() -> telemetry.addData("Key","Y" ))));
 
             // TODO
             // Configure the transfer system in such a way that the trigger pads' analogue values
@@ -49,15 +62,30 @@ public class DuoOp extends CommandOpMode {
     }
     @Override
     public void run(){
+        super.run();
         // full Mecanum drive system
         double y = -driver.getLeftY();
         double x = driver.getLeftX();
         double rx = driver.getRightX();
         double correction = Math.max(Math.abs(y)+Math.abs(x)+Math.abs(rx),1);
 
-        LF.setPower((y + x + rx)/correction);
-        LB.setPower((y - x + rx)/correction);
-        RF.setPower((y - x - rx)/correction);
-        RB.setPower((y + x - rx)/correction);
+        double lf_power = (y + x + rx)/correction;
+        double lb_power = (y - x + rx)/correction;
+        double rf_power = (y - x - rx)/correction;
+        double rb_power = (y + x - rx)/correction;
+//        LF.setPower(lf_power);
+//        LB.setPower(lb_power);
+//        RF.setPower(rf_power);
+//        RB.setPower(rb_power);
+
+        // Telemetery
+        telemetry.addData("Left Front Model", lf_power);
+        telemetry.addData("Left Back Model", lb_power);
+        telemetry.addData("Right Front Model", rf_power);
+        telemetry.addData("Right Back Model", rb_power);
+
+        telemetry.update();
+
+
     }
 }
