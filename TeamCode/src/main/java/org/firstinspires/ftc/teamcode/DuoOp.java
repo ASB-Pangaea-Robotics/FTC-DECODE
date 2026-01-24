@@ -37,7 +37,8 @@ public class DuoOp extends CommandOpMode {
 
             // Intake
 
-            driver.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(intake_power))));
+            operator.getGamepadButton(GamepadKeys.Button.A).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(intake_power))));
+            operator.getGamepadButton(GamepadKeys.Button.B).whenPressed(() -> schedule(new InstantCommand(() -> intake.setPower(-intake_power))));
 
             // TODO
             // Configure the transfer system in such a way that the trigger pads' analogue values
