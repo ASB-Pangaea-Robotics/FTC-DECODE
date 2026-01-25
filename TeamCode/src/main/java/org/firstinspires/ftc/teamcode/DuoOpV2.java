@@ -67,6 +67,22 @@ public class DuoOpV2 extends LinearOpMode {
             telemetry.addData("Intake", gamepad2.a);
             telemetry.addData("Transfer", gamepad2.b);
 
+//            if (gamepad2.a){
+//                intake.setPower(intake_power);
+//            }
+//
+//            if (gamepad2.b){
+//                intake.setPower(-intake_power*0.5);
+//            }
+//
+//            if (gamepad2.x){
+//                transfer.setPower(transfer_power);
+//            }
+//
+//            if (gamepad2.y){
+//                transfer.setPower(-transfer_power*0.5);
+//            }
+
 
             telemetry.update();
 
