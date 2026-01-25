@@ -51,14 +51,14 @@ public class Hardware {
         LB = map.get(DcMotor.class, "lb");
         RB = map.get(DcMotor.class, "rb");
 
-        // Outake
-        aim = map.get(Servo.class, "aim");
-        launch = map.get(Servo.class, "launch");
+//        // Outake
+//        aim = map.get(Servo.class, "aim");
+//        launch = map.get(Servo.class, "launch");
 
         // Intake
-        in = map.get(DcMotor.class, "intake");
+        in = map.get(DcMotor.class, "in");
         in.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        transfer = map.get(DcMotor.class, "transfer");
+        transfer = map.get(DcMotor.class, "tran");
 
 
     }
