@@ -27,21 +27,12 @@ public class FarAuto extends LinearOpMode {
         timer.reset();
         while(opModeIsActive() && timer.seconds() < time){
             telemetry.addLine("Running");
-            YDrive(1);
+
             telemetry.update();
         }
         telemetry.addLine("Finished");
-        YDrive(0);
-    }
-
-    private void YDrive(double power){
-        LF.setPower(-power);
-        RF.setPower(power);
-        LB.setPower(power);
-        RB.setPower(power);
-    }
-
-    private void XDrive(double power){
 
     }
+
+
 }
