@@ -46,8 +46,8 @@ public class DuoOpV2DriveOnly extends LinearOpMode {
             // NOTE: x and y have been temporarily swapped until I can figure out why the
             // controllers are reading the wrong values on the Rev Driver Hub
             // - Aryaman
-            double y = -gamepad1.left_stick_y;
-            double x = gamepad1.left_stick_x;
+            double x = -gamepad1.left_stick_y;
+            double y = gamepad1.left_stick_x;
 //            x = 0;
             double rx = gamepad1.right_stick_x;
             double correction = Math.max(Math.abs(y)+Math.abs(x)+Math.abs(rx),1);
