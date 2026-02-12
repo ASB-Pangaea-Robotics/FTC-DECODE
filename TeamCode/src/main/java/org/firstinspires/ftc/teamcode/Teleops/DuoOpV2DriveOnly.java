@@ -6,12 +6,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.common.Hardware;
 
 /**
- * Driver and Operator TeleOp Version 2 has basic controls implemented for the intake, transfer,
- * and the entire DriveTrain.
+ * DuoOpV2 variation that only uses the DriveTrain.
  */
-// This is not ideal. A better DuoOpV4 will be made with proper programming principles applied.
-@TeleOp(name="DuoOpV2", group="Final")
-public class DuoOpV2 extends LinearOpMode {
+// NOTE: This is a really bad way of implementing this class. For future notes, such classes should
+// be made the base case. the best option honestly would have been using a DriveBase subsystem to
+// handle all the motor power setting, with another class for Driver controls that can once
+// again be modified to get a better system.
+// - Aryaman
+// TODO: Implement a better DuoOpV4 along with an actually working DriveTrain subsystem
+@TeleOp(name="DuoOpV2DriveOnly", group="Final")
+public class DuoOpV2DriveOnly extends LinearOpMode {
 
     // hardware
     Hardware robot = Hardware.hardware_instance();
@@ -23,13 +27,13 @@ public class DuoOpV2 extends LinearOpMode {
     DcMotor LB = robot.LB;
 
     // intake
-    DcMotor intake = robot.in;
-    double intake_power = 1.0;
+//    DcMotor intake = robot.in;
+//    double intake_power = 1.0;
 
     // transfer
 
-    DcMotor transfer = robot.transfer;
-    double transfer_power = 1;
+//    DcMotor transfer = robot.transfer;
+//    double transfer_power = 1;
 
     // gamepad
 
@@ -39,6 +43,9 @@ public class DuoOpV2 extends LinearOpMode {
         waitForStart();
         while(opModeIsActive()){
             // full Mecanum drive system
+            // NOTE: x and y have been temporarily swapped until I can figure out why the
+            // controllers are reading the wrong values on the Rev Driver Hub
+            // - Aryaman
             double y = -gamepad1.left_stick_y;
             double x = gamepad1.left_stick_x;
 //            x = 0;
@@ -68,31 +75,31 @@ public class DuoOpV2 extends LinearOpMode {
             telemetry.addData("Expel", gamepad2.b);
             telemetry.addData("Transfer", gamepad2.x);
             telemetry.addData("Temp-Outtake", gamepad2.y);
+////
+//            if (gamepad2.a){
+//                intake.setPower(intake_power);
+//            } else {
+//                intake.setPower(0);
+//            }
 //
-            if (gamepad2.a){
-                intake.setPower(intake_power);
-            } else {
-                intake.setPower(0);
-            }
-
-            if (gamepad2.b){
-                intake.setPower(-intake_power)
-                ;
-            } else {
-                intake.setPower(0);
-            }
-
-            if (gamepad2.x){
-                transfer.setPower(transfer_power);
-            } else {
-                transfer.setPower(0);
-            }
-
-            if (gamepad2.y){
-                transfer.setPower(-transfer_power*0.5);
-            } else {
-                transfer.setPower(0);
-            }
+//            if (gamepad2.b){
+//                intake.setPower(-intake_power)
+//                ;
+//            } else {
+//                intake.setPower(0);
+//            }
+//
+//            if (gamepad2.x){
+//                transfer.setPower(transfer_power);
+//            } else {
+//                transfer.setPower(0);
+//            }
+//
+//            if (gamepad2.y){
+//                transfer.setPower(-transfer_power*0.5);
+//            } else {
+//                transfer.setPower(0);
+//            }
 
 
 

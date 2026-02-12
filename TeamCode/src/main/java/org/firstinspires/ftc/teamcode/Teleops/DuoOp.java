@@ -51,7 +51,6 @@ public class DuoOp extends CommandOpMode {
             operator.getGamepadButton(GamepadKeys.Button.X).whenPressed(()-> schedule(new InstantCommand(() -> telemetry.addData("Key","X" ))));
             operator.getGamepadButton(GamepadKeys.Button.Y).whenPressed(()-> schedule(new InstantCommand(() -> telemetry.addData("Key","Y" ))));
 
-            // TODO
             // Configure the transfer system in such a way that the trigger pads' analogue values
             // can be read to change power to the motor.
             // reason is because the transfer is a bit odd currently, and this is a temp solution.

@@ -21,12 +21,12 @@ public class DuoOpV3 extends LinearOpMode {
     DriveTrain driveTrain = DriveTrain.DriveTrainInstance();
 
     // intake
-    DcMotor intake = robot.in;
+//    DcMotor intake = robot.in;
     double intake_power = 1.0;
 
     // transfer
 
-    DcMotor transfer = robot.transfer;
+//    DcMotor transfer = robot.transfer;
     double transfer_power = 1;
 
     // gamepad
@@ -55,31 +55,31 @@ public class DuoOpV3 extends LinearOpMode {
             telemetry.addData("Transfer", gamepad2.x);
             telemetry.addData("Temp-Outtake", gamepad2.y);
 
-            if (gamepad2.a){
-                intake.setPower(intake_power);
-            } else {
-                intake.setPower(0);
-            }
-
-            if (gamepad2.b){
-                intake.setPower(-intake_power)
-                ;
-            } else {
-                intake.setPower(0);
-            }
-
-            if (gamepad2.x){
-                transfer.setPower(transfer_power);
-            } else {
-                transfer.setPower(0);
-            }
-
-            if (gamepad2.y){
-                transfer.setPower(-transfer_power*0.5);
-            } else {
-                transfer.setPower(0);
-            }
-
+//            if (gamepad2.a){
+//                intake.setPower(intake_power);
+//            } else {
+//                intake.setPower(0);
+//            }
+//
+//            if (gamepad2.b){
+//                intake.setPower(-intake_power)
+//                ;
+//            } else {
+//                intake.setPower(0);
+//            }
+//
+//            if (gamepad2.x){
+//                transfer.setPower(transfer_power);
+//            } else {
+//                transfer.setPower(0);
+//            }
+//
+//            if (gamepad2.y){
+//                transfer.setPower(-transfer_power*0.5);
+//            } else {
+//                transfer.setPower(0);
+//            }
+//
 
 
 
